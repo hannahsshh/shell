@@ -38,16 +38,41 @@ mv rawdata data/raw
 
 # 3. List the contents of the ./data/raw directory
 
+ls data/raw/rawdata
+
 # 4. In ./data/processed, create the following directories: server_logs, user_logs, and event_logs
+
+cd data
+
+mkdir processed
+
+cd processed
+
+mkdir "server_logs" "user_logs" "event_logs"
+
 
 # 5. Copy all server log files (files with "server" in the name AND a .log extension) from ./data/raw to ./data/processed/server_logs
 
+cd ..
+
+cp raw/rawdata/server*.log processed/server_logs
+
 # 6. Repeat the above step for user logs and event logs
+
+cp raw/rawdata/event*.log processed/event_logs
+
+# Self note: did not move over the user logs with the IP attached -- is this correct??
+cp raw/rawdata/user_log*.log processed/user_logs
 
 # 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
 
+# Self note: removing files with IP address only from raw folder and not from user logs because didn't move any of those IP containing logs above
+rm raw/rawdata/*ipaddr*.* 
+
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
 
+touch "inventory.txt"
+ls processed/*/ >> "inventory.txt"
 
 ###########################################
 
