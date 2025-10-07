@@ -69,7 +69,6 @@ cp raw/event*.log processed/event_logs
 cp raw/user_log*.log processed/user_logs
 
 # 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
-rf -rf ./data
 
 # Self note: removing files with IP address only from raw folder and not from user logs because didn't move any of those IP containing logs above
 rm raw/*ipaddr*.* 
